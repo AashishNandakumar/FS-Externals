@@ -173,7 +173,7 @@ def book_detail(request, pk):
 """
 Cookies
     -> Are small pieces of data stored on the browser by the website
-    -> They are useful for maintaining stateful information for the stateless information
+    -> They are useful for maintaining stateful information for the stateless HTTP protocol
     -> how are they beneficial?
         1. Session management - keeps users logged in across multiple pages
         2. Personalization - remembering user preferences

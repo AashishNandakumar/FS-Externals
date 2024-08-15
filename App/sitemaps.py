@@ -21,7 +21,7 @@ Sitemaps
 """
 
 
-class BookSiteMap(Sitemap):
+class BookSitemap(Sitemap):
     changefreq = "weekly"
     priority = 0.8
     protocol = "http"
