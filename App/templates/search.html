@@ -1,0 +1,32 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Student Internship Domain Search</h1>
+<input type="text" id="student-name" placeholder="Enter student name" />
+<button id="search-btn">Search</button>
+<ul id="domain-list"></ul>
+
+<script>
+    $(document).ready(function () {
+        $("#search-btn").click(function () {
+            let query = $("#student-name").val();
+            $.ajax({
+                url: '{% url "search-internship" %}',
+                data: { query: query },
+                dataType: "JSON",
+                success: function (data) {
+                    $("#domain-list").empty();
+                    if (data.domains.length > 0) {
+                        data.domains.forEach(function (domain) {
+                            $("#domain-list").append("<li>" + domain + "</li>");
+                        });
+                    } else {
+                        $("#domain-list").append(
+                            "<li> No intership domains found OR student not dound </li>",
+                        );
+                    }
+                },
+            });
+        });
+    });
+</script>
+{% endblock %}
